@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:minWidth="@dimen/_320sdp"
+    android:layout_height="wrap_content">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:theme="@style/Widget.MaterialComponents.MaterialCalendar">
+
+                <TextView
+                    android:id="@+id/dialogTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="@dimen/_4sdp"
+                    android:text="@string/save_pin"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldTitle"
+                    style="@style/textInputLayout"
+                    android:hint="@string/title">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edTitle"
+                        style="@style/textInputEditText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldOwnerName"
+                    style="@style/textInputLayout"
+                    android:hint="@string/owner_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edOwnerName"
+                        style="@style/textInputEditText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldLocationName"
+                    style="@style/textInputLayout"
+                    android:hint="@string/location_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edLocationName"
+                        style="@style/textInputEditText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldTagName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:hint="@string/tag_name"
+                    app:hintTextColor="@color/color3"
+                    app:boxStrokeColor="@color/color3">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/TagName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:inputType="none"
+                        tools:ignore="LabelFor" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldEstablishedDate"
+                    style="@style/textInputLayout"
+                    android:hint="@string/established_date"
+                    app:startIconDrawable="@drawable/ic_calendar" >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edEstablishedDate"
+                        style="@style/textInputEditText"
+                        android:inputType="text"
+                        android:maxLength="10"
+                        android:digits="1234567890/"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldLatLong"
+                    style="@style/textInputLayout"
+                    android:hint="@string/latitude_and_longitude"
+                    android:enabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edLatLong"
+                        style="@style/textInputEditText"
+                        android:inputType="none"
+                        android:maxLines="2"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/saveButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_8sdp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#4CAF50"
+                        android:text="@string/save"
+                        android:textColor="#FFFFFF" />
+
+                    <Button
+                        android:id="@+id/cancelButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_8sdp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#F44336"
+                        android:text="@string/cancel"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
+
+
+
+
+

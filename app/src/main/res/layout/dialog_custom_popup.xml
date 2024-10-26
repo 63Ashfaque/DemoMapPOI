@@ -1,0 +1,69 @@
+<!-- res/layout/dialog_custom_popup.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvGeoJson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/geojson"
+                android:textSize="@dimen/_14sdp"
+                android:drawablePadding="@dimen/_6sdp"
+                android:gravity="center_vertical"
+                app:drawableStartCompat="@drawable/round_data_object_24" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grayColor" />
+
+            <TextView
+                android:id="@+id/tvUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/update"
+                android:textSize="@dimen/_14sdp"
+                android:drawablePadding="@dimen/_6sdp"
+                android:gravity="center_vertical"
+                app:drawableStartCompat="@drawable/round_edit_24" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grayColor" />
+
+            <TextView
+                android:id="@+id/tvDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/delete"
+                android:textSize="@dimen/_14sdp"
+                android:drawablePadding="@dimen/_6sdp"
+                android:gravity="center_vertical"
+                app:drawableStartCompat="@drawable/round_delete_24" />
+
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>
