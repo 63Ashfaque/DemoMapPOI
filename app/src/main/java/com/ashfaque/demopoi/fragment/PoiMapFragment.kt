@@ -155,13 +155,13 @@ class PoiMapFragment : Fragment(), OnMapReadyCallback {
                                 "LOCATION NAME:- ${latLngPOI.locationName}\n"+
                                 "ESTABLISHED Date:- ${latLngPOI.establishedDate}\n",
                         LatLng(latLngPOI.lat.toDouble(),latLngPOI.lng.toDouble()),
-                        BitmapDescriptorFactory.HUE_ORANGE,true)
+                        BitmapDescriptorFactory.HUE_ORANGE,false)
 
             }
         }
     }
 
-    private fun markerOption(title:String,snippet:String,latLngPOI: LatLng, pinColor: Float,isEdit:Boolean) {
+    private fun markerOption(title:String,snippet:String,latLngPOI: LatLng, pinColor: Float,isButton:Boolean) {
         if (pinColor == BitmapDescriptorFactory.HUE_GREEN) {
             if (!isFirst) {
                 currentMarker?.remove()
@@ -210,57 +210,54 @@ class PoiMapFragment : Fragment(), OnMapReadyCallback {
                     }
                 }
 
-                val button = TextView(requireContext()).apply {
-                    setTextColor(Color.WHITE)
-                    gravity = Gravity.CENTER
-                    setTypeface(null, Typeface.BOLD)
-                    text = "Save Pin"
-                    setBackgroundResource(R.drawable.circle_border_background) // Circular border and background
-                    setPadding(32, 16, 32, 16) // Padding inside the button for a better appearance
-                    layoutParams = LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                    ).apply {
-                        setMargins(16, 16, 16, 16) // Margin around the button
-                    }
-
-                }
 
                 info.addView(title)
                 info.addView(snippet)
-                if(!isEdit)
+                if(marker.snippet=="My New POI")
                 {
+                    val button = TextView(requireContext()).apply {
+                        setTextColor(Color.WHITE)
+                        gravity = Gravity.CENTER
+                        setTypeface(null, Typeface.BOLD)
+                        text = "Save Pin"
+                        setBackgroundResource(R.drawable.circle_border_background) // Circular border and background
+                        setPadding(32, 16, 32, 16) // Padding inside the button for a better appearance
+                        layoutParams = LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.WRAP_CONTENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT
+                        ).apply {
+                            setMargins(16, 16, 16, 16) // Margin around the button
+                        }
+
+                            mMap.setOnInfoWindowClickListener { marker ->
+
+                                val entityDataClass= EntityDataClass(
+                                    0,"","","","", "",
+                                    latLngPOI.latitude,latLngPOI.longitude, "",
+                                )
+
+                                val dialogFragment = SavePinDialogFragment(entityDataClass,false)
+                                {
+                                    Utils.logDebug("SavePinDialogFragment was dismissed")
+                                    //Reload the screen
+                                    val fragmentManager = requireActivity().supportFragmentManager
+                                    val newFragment = PoiMapFragment()
+                                    fragmentManager.beginTransaction()
+                                        .replace(R.id.fragment_container, newFragment)
+                                        .addToBackStack(null)
+                                        .commit()
+
+                                }
+                                dialogFragment.show(parentFragmentManager, "SavePinDialog")
+                            }
+
+                    }
                     info.addView(button)
                 }
                 return info
             }
 
         })
-
-        if(!isEdit)
-        {
-            mMap.setOnInfoWindowClickListener { marker ->
-
-                val entityDataClass= EntityDataClass(
-                    0,"","","","", "",
-                    latLngPOI.latitude,latLngPOI.longitude, "",
-                )
-
-                val dialogFragment = SavePinDialogFragment(entityDataClass,false)
-                {
-                    Utils.logDebug("SavePinDialogFragment was dismissed")
-                    //Reload the screen
-                    val fragmentManager = requireActivity().supportFragmentManager
-                    val newFragment = PoiMapFragment()
-                    fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, newFragment)
-                        .addToBackStack(null)
-                        .commit()
-
-                }
-                dialogFragment.show(parentFragmentManager, "SavePinDialog")
-            }
-        }
 
         currentMarker?.let { poiMarkers.add(it) }
     }
@@ -274,18 +271,15 @@ class PoiMapFragment : Fragment(), OnMapReadyCallback {
 
             if (isWithinRadius) {
                 markerOption("POI ${latLngPOI.latitude},\n${latLngPOI.longitude}",
-                    "\"My New POI",
-                    latLngPOI, BitmapDescriptorFactory.HUE_GREEN,false)
+                    "My New POI",
+                    latLngPOI, BitmapDescriptorFactory.HUE_GREEN,true)
 
                 val currentZoomLevel = mMap.cameraPosition.zoom
                 val cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLngPOI, currentZoomLevel)
                 mMap.animateCamera(cameraUpdate)
 
-                Toast.makeText(
-                    requireContext(),
-                    "Clicked location: $markerTitle",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Utils.showToast(requireContext(), markerTitle,)
+
             } else {
                 showSimpleDialog()
             }
@@ -341,6 +335,7 @@ class PoiMapFragment : Fragment(), OnMapReadyCallback {
     private fun showSimpleDialog() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle("You are outside the $radiusInMeters meters radius.")
+        builder.setMessage("Only the green area is your work area")
 
         builder.setPositiveButton("OK") { dialog, _ ->
             dialog.dismiss() // Dismiss the dialog when "OK" is clicked
