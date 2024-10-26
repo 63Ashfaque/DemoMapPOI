@@ -8,14 +8,20 @@
     android:padding="16dp">
 
     <!-- Profile Image -->
-    <ImageView
-        android:id="@+id/profileImage"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_gravity="center"
-        android:src="@drawable/icon_user"
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="@dimen/_70sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginBottom="16dp" />
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="@dimen/_100sdp">
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/logo" />
+    </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:id="@+id/profileName"
@@ -23,9 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Mohammad Ashfaque"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="24dp" />
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvMobile"
@@ -33,9 +38,24 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="+91-8793215893"
-        android:textSize="18sp"
+        android:textSize="@dimen/_14sdp"
         android:textStyle="bold"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="@dimen/_14sdp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/grayColor" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:text="Setting"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv"
@@ -43,8 +63,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginStart="@dimen/_12sdp"
-        android:text="Radius In Meters"
-        android:textSize="18sp"
+        android:text="1. Radius In Meters"
+        android:textSize="@dimen/_14sdp"
         android:textStyle="bold" />
         <com.google.android.material.slider.Slider
             android:id="@+id/slider"

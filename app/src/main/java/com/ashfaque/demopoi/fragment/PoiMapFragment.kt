@@ -15,14 +15,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.ashfaque.demopoi.Constants.LOCATION_PERMISSION_REQUEST_CODE
+import com.ashfaque.demopoi.utils_folder.Constants.LOCATION_PERMISSION_REQUEST_CODE
 import com.ashfaque.demopoi.R
-import com.ashfaque.demopoi.Utils
-import com.ashfaque.demopoi.adapter.MyAdapter
+import com.ashfaque.demopoi.utils_folder.Utils
 import com.ashfaque.demopoi.databinding.FragmentPoiMapBinding
 import com.ashfaque.demopoi.roomdb.DataBaseName
 import com.ashfaque.demopoi.roomdb.EntityDataClass
@@ -39,10 +37,6 @@ import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class PoiMapFragment : Fragment(), OnMapReadyCallback {
 

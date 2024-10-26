@@ -1,7 +1,6 @@
 package com.ashfaque.demopoi.fragment
 
 import android.annotation.SuppressLint
-import android.app.DatePickerDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,19 +10,15 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import com.ashfaque.demopoi.R
-import android.widget.Button
-import android.widget.TextView
-import com.ashfaque.demopoi.Utils
-import com.ashfaque.demopoi.Utils.isValidDate
+import com.ashfaque.demopoi.utils_folder.Utils
+import com.ashfaque.demopoi.utils_folder.Utils.isValidDate
 import com.ashfaque.demopoi.databinding.FragmentSavePinDialogBinding
 import com.ashfaque.demopoi.roomdb.DataBaseName
 import com.ashfaque.demopoi.roomdb.EntityDataClass
-import com.google.android.gms.maps.model.LatLng
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.Calendar
 
 class SavePinDialogFragment(private val entityDataClass: EntityDataClass,
                             private val isEdit:Boolean,

@@ -1,13 +1,10 @@
-package com.ashfaque.demopoi
+package com.ashfaque.demopoi.utils_folder
 
 import android.content.Context
-import android.content.Intent
 import android.location.Location
 import android.location.LocationManager
-import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import com.google.android.gms.maps.model.LatLng
 import java.text.SimpleDateFormat
 import java.util.Calendar

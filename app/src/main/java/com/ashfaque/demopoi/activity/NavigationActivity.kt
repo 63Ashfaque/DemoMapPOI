@@ -1,4 +1,4 @@
-package com.ashfaque.demopoi
+package com.ashfaque.demopoi.activity
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.ashfaque.demopoi.R
 import com.ashfaque.demopoi.databinding.ActivityNavigationBinding
 import com.ashfaque.demopoi.fragment.ListsFragment
 import com.ashfaque.demopoi.fragment.PoiMapFragment

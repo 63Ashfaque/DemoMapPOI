@@ -19,13 +19,10 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import com.ashfaque.demopoi.R
-import com.ashfaque.demopoi.Utils
+import com.ashfaque.demopoi.utils_folder.Utils
 import com.ashfaque.demopoi.adapter.MyAdapter
-import com.ashfaque.demopoi.adapter.MyAdapter.MyClickListener
 import com.ashfaque.demopoi.databinding.FragmentListsBinding
-import com.ashfaque.demopoi.databinding.FragmentPoiMapBinding
 import com.ashfaque.demopoi.roomdb.DataBaseName
 import com.ashfaque.demopoi.roomdb.EntityDataClass
 import com.ashfaque.demopoi.roomdb.generateGeoJson

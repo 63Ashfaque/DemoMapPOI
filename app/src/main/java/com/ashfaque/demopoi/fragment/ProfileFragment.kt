@@ -6,12 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import com.ashfaque.demopoi.R
-import com.ashfaque.demopoi.Utils
-import com.ashfaque.demopoi.databinding.FragmentListsBinding
 import com.ashfaque.demopoi.databinding.FragmentProfileBinding
-import com.ashfaque.demopoi.databinding.FragmentSavePinDialogBinding
 import com.ashfaque.demopoi.shared_preference.SharedPrefConstants
 import com.ashfaque.demopoi.shared_preference.SharedPreferenceManager
 
