@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:text="@string/no_data_found"
         android:textColor="@color/grayColor"
-        android:textSize="@dimen/_30sdp"
+        android:textSize="@dimen/_25sdp"
         android:visibility="invisible"
         tools:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -23,6 +23,7 @@ import com.ashfaque.demopoi.R
 import com.ashfaque.demopoi.utils_folder.Utils
 import com.ashfaque.demopoi.adapter.MyAdapter
 import com.ashfaque.demopoi.databinding.FragmentListsBinding
+import com.ashfaque.demopoi.notification.showNotification
 import com.ashfaque.demopoi.roomdb.DataBaseName
 import com.ashfaque.demopoi.roomdb.EntityDataClass
 import com.ashfaque.demopoi.roomdb.generateGeoJson
@@ -139,6 +140,9 @@ class ListsFragment : Fragment(),MyAdapter.MyClickListener  {
             if (result > 0) {
                 withContext(Dispatchers.Main) {
                     Utils.showToast(requireContext(),  "Item Delete")
+
+                    showNotification(requireContext(), item.title,
+                         "Item Delete")
                 }
             } else {
                 withContext(Dispatchers.Main) {

@@ -13,6 +13,7 @@ import com.ashfaque.demopoi.R
 import com.ashfaque.demopoi.utils_folder.Utils
 import com.ashfaque.demopoi.utils_folder.Utils.isValidDate
 import com.ashfaque.demopoi.databinding.FragmentSavePinDialogBinding
+import com.ashfaque.demopoi.notification.showNotification
 import com.ashfaque.demopoi.roomdb.DataBaseName
 import com.ashfaque.demopoi.roomdb.EntityDataClass
 import kotlinx.coroutines.CoroutineScope
@@ -178,6 +179,11 @@ class SavePinDialogFragment(private val entityDataClass: EntityDataClass,
             if (result > 0) {
                 withContext(Dispatchers.Main) {
                     Utils.showToast(requireContext(),  if (!isEdit) "Insert Successful" else "Update Successful")
+
+                    showNotification(requireContext(), entityDataClass.title,
+                        if (!isEdit) "Insert Successful"
+                        else "Update Successful")
+
                     onDismissCallback?.invoke()
                     dismiss()
                 }
